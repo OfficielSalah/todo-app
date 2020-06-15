@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
-const cors = require("cors");
+//const cors = require("cors");
 //const mongoose = require("mongoose");
 const error = require("./routes/error");
 
@@ -10,18 +10,17 @@ require("dotenv").config();
 const PORT = process.env.PORT || 1337;
 
 let app = express();
+
 app.use(express.static("public"));
 app.use(helmet());
 app.use(morgan("common"));
-app.use(
-  cors({
+/*app.use(cors({
     origin: process.env.CORS_ORIGIN,
-  })
-);
-app.use(express.json());
+  }));
+app.use(express.json());*/
 
 app.get("/", (_req, res) => {
-  res.send("Yeey It's Working");
+  res.render("index");
 });
 
 app.use(error.notfound);

@@ -21,13 +21,21 @@ This Is a Web-App Built With Node.Js And Mongodb Which Has Lot Of Features .
     - Danger Zone.
 
   - ideas .
-  - Strcuturing Projects .
+  - Structuring Projects .
   - Roadmap .
 
 # Tasks :
 
-- [ ] Set-up The Back-end .
 - [ ] Set-up The Front-end .
+  - [ ] Set-up the accounts page.
+  - [ ] Set-up the Todo-Tree page.
+  - [ ] Set-up the ideas page.
+  - [ ] Set-up the Structring Projects page.
+  - [ ] Set-up the roadmap page.
+- [ ] Set-up The Back-end .
+  - [ ] Connect to Mongodb
+  - [ ] Set-up the add items
+  - [ ] Set-up the delete items
 
 # Features :
 
