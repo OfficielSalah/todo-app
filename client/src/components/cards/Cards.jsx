@@ -1,35 +1,29 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Card from "./Card/Card";
 
 export default class Cards extends Component {
   state = {
-    cards: [
-      {
-        title: "Things To Do",
-        infos: ["1", "2", "3"],
-      },
-      {
-        title: "Doing Right Now",
-        infos: ["4", "5", "6"],
-      },
-      {
-        title: "Completed",
-        infos: ["First Note", "Second Note", "Third Note"],
-      },
-    ],
+    cards: [],
   };
-  deletefunc = (index, information) => {
-    let cards = [...this.state.cards]; //all the cards
 
+  componentDidMount() {
+    axios.get(`http://localhost:1337`).then((res) => {
+      this.setState({ cards: res.data });
+    });
+  }
+
+  deletefunc = (index, information) => {
+    let cards = [...this.state.cards];
     let thecard = cards
       .map((card) => card)
       .filter((card) => card.title === index);
-    thecard = thecard[0]; // the card {title:...,infos:...}
-    let theinfos = thecard.infos; //["1","2","3"]
+    thecard = thecard[0];
+    let theinfos = thecard.infos;
     theinfos = theinfos
       .map((info) => info)
-      .filter((info) => info !== information); // theinfos ["1","2"]
-    thecard.infos = theinfos; //updated {title:...,infos:...}
+      .filter((info) => info !== information);
+    thecard.infos = theinfos;
     cards.map((card) => {
       if (card.title === index) {
         card.infos = theinfos;
@@ -38,6 +32,7 @@ export default class Cards extends Component {
     });
     this.setState({ cards });
   };
+
   render() {
     return (
       <div className="container">
@@ -53,7 +48,6 @@ export default class Cards extends Component {
               </Card>
             );
           })}
-          {}
         </div>
       </div>
     );

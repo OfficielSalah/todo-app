@@ -11,7 +11,6 @@ export default class Card extends Component {
     this.setState({ infos: this.props.infos });
   }
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if (prevProps.infos !== this.props.infos) {
       this.update();
     }
