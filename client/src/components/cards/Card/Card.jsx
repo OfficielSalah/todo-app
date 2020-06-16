@@ -1,29 +1,38 @@
 import React, { Component } from "react";
-import Note from "./Note";
-import "./Note.css";
+import Note from "./note/Note";
 
 export default class Card extends Component {
   state = {
     add: false,
     noteadded: "",
-    todos: [
-      { note: "First Note" },
-      { note: "Second Note" },
-      { note: "Third Note" },
-    ],
+    infos: [],
+  };
+  componentDidMount() {
+    this.setState({ infos: this.props.infos });
+  }
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    if (prevProps.infos !== this.props.infos) {
+      this.update();
+    }
+  }
+
+  update = () => {
+    this.setState({ infos: this.props.infos });
   };
 
   submit = (event) => {
     event.preventDefault();
-    console.log("value added :", this.state.noteadded);
-    this.state.todos.push({ note: this.state.noteadded });
+    this.state.infos.push(this.state.noteadded);
     this.setState({
-      todos: [...this.state.todos],
+      infos: [...this.state.infos],
+      noteadded: "",
     });
   };
   change = (event) => {
     this.setState({ noteadded: event.target.value });
   };
+
   render() {
     return (
       <div className="card mb-4 shadow-sm">
@@ -31,20 +40,26 @@ export default class Card extends Component {
           <h4 className="my-0 font-weight-normal">{this.props.children}</h4>
         </div>
         <div className="card-body col bg-dark">
-          {this.state.todos.map((data) => {
-            console.log(data.note);
-            return <Note key={data.title}>{data.note}</Note>;
+          {this.state.infos.map((data) => {
+            return (
+              <Note
+                key={data}
+                delete={this.props.deleteinfo}
+                champ={this.props.children}
+              >
+                {data}
+              </Note>
+            );
           })}
         </div>
-        <form
-          className="container-fluid form-inline"
-          onSubmit={this.submit}
-          onChange={this.change}
-        >
+        <form className="container-fluid form-inline" onSubmit={this.submit}>
           <input
             className="form-control"
             name="note"
+            onChange={this.change}
+            value={this.state.noteadded}
             placeholder="+ Add Note"
+            autoComplete="off"
             required
           />
           <button type="submit" className="btn btn-dark btn-sm">

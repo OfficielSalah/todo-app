@@ -6,16 +6,19 @@ export default class Note extends Component {
     hide: false,
   };
 
-  delete = () => {
-    this.setState({ hide: true });
-  };
   render() {
     return (
       <div className={`${this.state.hide ? "hide" : " "}`}>
         <div className="card">
-          <p className="card-text border-darken-3">
+          <p className="card-text">
             {this.props.children}
-            <button type="button" className="close btn" onClick={this.delete}>
+            <button
+              type="button"
+              className="close btn"
+              onClick={() => {
+                this.props.delete(this.props.champ, this.props.children);
+              }}
+            >
               <span>&times;</span>
             </button>
           </p>
