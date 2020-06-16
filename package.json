@@ -1,7 +1,7 @@
 {
   "name": "todo-app",
   "version": "1.0.0",
-  "description": "This Is a Web-App Built With Node.Js And Mongodb Which Has Lot Of Features .",
+  "description": "This Is a Web-App Built With Node.Js React.js And Mongodb Which Has Lot Of Features .",
   "main": "app.js",
   "scripts": {
     "app": "nodemon app.js"

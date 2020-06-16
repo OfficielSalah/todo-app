@@ -1,0 +1,12 @@
+.hide {
+  display: none;
+}
+.card {
+  margin: 15px;
+}
+.btn {
+  margin: 10px;
+}
+.form-inline {
+  margin: 5px;
+}

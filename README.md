@@ -2,7 +2,7 @@
 
 # Introduction :
 
-This Is a Web-App Built With Node.Js And Mongodb Which Has Lot Of Features .
+This Is a Web-App Built With Node.Js React.js And Mongodb Which Has Lot Of Features .
 
 # Technologies Used :
 
@@ -39,8 +39,9 @@ This Is a Web-App Built With Node.Js And Mongodb Which Has Lot Of Features .
 
 # Features :
 
+- More Documentation.
 - Authentification .
 - Save Accounts .
 - Edit Notes .
-- Slide Notes .
-- Set Up Deadline And Use Emails Or Messages.
+- Drag Note From Section To Other .
+- Set Up Deadline And Use Emails Or Messages or Both.
