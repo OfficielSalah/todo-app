@@ -6,13 +6,18 @@ This Is a Web-App Built With Node.Js React.js And Mongodb Which Has Lot Of Featu
 
 # Technologies Used :
 
-- Node.js
+- Node js
+- React js
+- Express
+- Axios
+- Mongodb
 
 # Structure :
 
 - Sections:
 
-  - Accounts .
+  - Accounts :
+
   - todo :
 
     - completed .
@@ -20,9 +25,9 @@ This Is a Web-App Built With Node.Js React.js And Mongodb Which Has Lot Of Featu
     - ASAP .
     - Danger Zone.
 
-  - ideas .
-  - Structuring Projects .
-  - Roadmap .
+  - ideas :
+
+# Hosting :
 
 # Features :
 
@@ -32,3 +37,7 @@ This Is a Web-App Built With Node.Js React.js And Mongodb Which Has Lot Of Featu
 - Edit Notes .
 - Drag Note From Section To Other .
 - Set Up Deadline And Use Emails Or Messages or Both.
+- Roadmap .
+- Structuring Projects .
+
+# Contributors :

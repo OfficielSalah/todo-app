@@ -8,26 +8,32 @@ export default class Cards extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:1337`).then((res) => {
+    axios.get(`http://localhost:9229`).then((res) => {
       this.setState({ cards: res.data });
     });
   }
 
-  deletefunc = (index, information) => {
+  deleteFunc = (index, information) => {
     let cards = [...this.state.cards];
     let thecard = cards
       .map((card) => card)
       .filter((card) => card.title === index);
+
     thecard = thecard[0];
+
     let theinfos = thecard.infos;
+
     theinfos = theinfos
       .map((info) => info)
       .filter((info) => info !== information);
+
     thecard.infos = theinfos;
+
     cards.map((card) => {
       if (card.title === index) {
         card.infos = theinfos;
       }
+
       return card;
     });
     this.setState({ cards });
@@ -37,14 +43,14 @@ export default class Cards extends Component {
     return (
       <div className="container">
         <div className="card-deck text-center">
-          {this.state.cards.map((data) => {
+          {this.state.cards.map((card) => {
             return (
               <Card
-                infos={data.infos}
-                key={data.title}
-                deleteinfo={this.deletefunc}
+                infos={card.infos}
+                key={card.title}
+                deleteinfo={this.deleteFunc}
               >
-                {data.title}
+                {card.title}
               </Card>
             );
           })}
